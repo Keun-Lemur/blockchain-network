@@ -1,0 +1,5 @@
+build/bin/{{.BinaryName}} usr/bin
+{{- if eq .BinaryName "pract" }}
+build/deb/practeum/completions/bash/pract etc/bash_completion.d
+build/deb/practeum/completions/zsh/_pract usr/share/zsh/vendor-completions
+{{end -}}
