@@ -67,7 +67,7 @@ func main() {
 
 	var (
 		stacks []*node.Node
-		nodes  []*eth.practeum
+		nodes  []*eth.Practeum
 		enodes []*enode.Node
 	)
 	for i := 0; i < 4; i++ {
@@ -219,7 +219,7 @@ func makeGenesis(faucets []*ecdsa.PrivateKey) *core.Genesis {
 	return genesis
 }
 
-func makeMiner(genesis *core.Genesis) (*node.Node, *eth.practeum, error) {
+func makeMiner(genesis *core.Genesis) (*node.Node, *eth.Practeum, error) {
 	// Define the basic configurations for the practeum node
 	datadir, _ := os.MkdirTemp("", "")
 

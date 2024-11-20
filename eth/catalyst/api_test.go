@@ -390,7 +390,7 @@ func TestEth2DeepReorg(t *testing.T) {
 }
 
 // startEthService creates a full node instance for testing.
-func startEthService(t *testing.T, genesis *core.Genesis, blocks []*types.Block) (*node.Node, *eth.practeum) {
+func startEthService(t *testing.T, genesis *core.Genesis, blocks []*types.Block) (*node.Node, *eth.Practeum) {
 	t.Helper()
 
 	n, err := node.New(&node.Config{
@@ -442,7 +442,7 @@ func TestFullAPI(t *testing.T) {
 	setupBlocks(t, ethservice, 10, parent, callback)
 }
 
-func setupBlocks(t *testing.T, ethservice *eth.practeum, n int, parent *types.Block, callback func(parent *types.Block)) {
+func setupBlocks(t *testing.T, ethservice *eth.Practeum, n int, parent *types.Block, callback func(parent *types.Block)) {
 	api := NewConsensusAPI(ethservice)
 	for i := 0; i < n; i++ {
 		callback(parent)

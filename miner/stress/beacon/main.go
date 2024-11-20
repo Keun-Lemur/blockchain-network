@@ -92,7 +92,7 @@ type ethNode struct {
 	stack      *node.Node
 	enode      *enode.Node
 	api        *ethcatalyst.ConsensusAPI
-	ethBackend *eth.practeum
+	ethBackend *eth.Practeum
 	lapi       *lescatalyst.ConsensusAPI
 	lesBackend *les.Lightpracteum
 }
@@ -103,7 +103,7 @@ func newNode(typ nodetype, genesis *core.Genesis, enodes []*enode.Node) *ethNode
 		api        *ethcatalyst.ConsensusAPI
 		lapi       *lescatalyst.ConsensusAPI
 		stack      *node.Node
-		ethBackend *eth.practeum
+		ethBackend *eth.Practeum
 		lesBackend *les.Lightpracteum
 	)
 	// Start the node and wait until it's up
@@ -458,7 +458,7 @@ func makeGenesis(faucets []*ecdsa.PrivateKey) *core.Genesis {
 	return genesis
 }
 
-func makeFullNode(genesis *core.Genesis) (*node.Node, *eth.practeum, *ethcatalyst.ConsensusAPI, error) {
+func makeFullNode(genesis *core.Genesis) (*node.Node, *eth.Practeum, *ethcatalyst.ConsensusAPI, error) {
 	// Define the basic configurations for the practeum node
 	datadir, _ := os.MkdirTemp("", "")
 

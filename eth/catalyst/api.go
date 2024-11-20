@@ -39,7 +39,7 @@ import (
 )
 
 // Register adds the engine API to the full node.
-func Register(stack *node.Node, backend *eth.practeum) error {
+func Register(stack *node.Node, backend *eth.Practeum) error {
 	log.Warn("Engine API enabled", "protocol", "eth")
 	stack.RegisterAPIs([]rpc.API{
 		{
@@ -81,7 +81,7 @@ const (
 )
 
 type ConsensusAPI struct {
-	eth *eth.practeum
+	eth *eth.Practeum
 
 	remoteBlocks *headerQueue  // Cache of remote payloads received
 	localBlocks  *payloadQueue // Cache of local payloads generated
@@ -124,7 +124,7 @@ type ConsensusAPI struct {
 
 // NewConsensusAPI creates a new consensus api for the given backend.
 // The underlying blockchain needs to have a valid terminal total difficulty set.
-func NewConsensusAPI(eth *eth.practeum) *ConsensusAPI {
+func NewConsensusAPI(eth *eth.Practeum) *ConsensusAPI {
 	if eth.BlockChain().Config().TerminalTotalDifficulty == nil {
 		log.Warn("Engine API started but chain not configured for merge yet")
 	}

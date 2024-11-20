@@ -42,42 +42,42 @@ import (
 )
 
 // practeumAPI provides an API to access practeum full node-related information.
-type practeumAPI struct {
-	e *practeum
+type PracteumAPI struct {
+	e *Practeum
 }
 
 // NewpracteumAPI creates a new practeum protocol API for full nodes.
-func NewpracteumAPI(e *practeum) *practeumAPI {
-	return &practeumAPI{e}
+func NewpracteumAPI(e *Practeum) *PracteumAPI {
+	return &PracteumAPI{e}
 }
 
 // Etherbase is the address that mining rewards will be send to.
-func (api *practeumAPI) Etherbase() (common.Address, error) {
+func (api *PracteumAPI) Etherbase() (common.Address, error) {
 	return api.e.Etherbase()
 }
 
 // Coinbase is the address that mining rewards will be send to (alias for Etherbase).
-func (api *practeumAPI) Coinbase() (common.Address, error) {
+func (api *PracteumAPI) Coinbase() (common.Address, error) {
 	return api.Etherbase()
 }
 
 // Hashrate returns the POW hashrate.
-func (api *practeumAPI) Hashrate() hexutil.Uint64 {
+func (api *PracteumAPI) Hashrate() hexutil.Uint64 {
 	return hexutil.Uint64(api.e.Miner().Hashrate())
 }
 
 // Mining returns an indication if this node is currently mining.
-func (api *practeumAPI) Mining() bool {
+func (api *PracteumAPI) Mining() bool {
 	return api.e.IsMining()
 }
 
 // MinerAPI provides an API to control the miner.
 type MinerAPI struct {
-	e *practeum
+	e *Practeum
 }
 
 // NewMinerAPI create a new MinerAPI instance.
-func NewMinerAPI(e *practeum) *MinerAPI {
+func NewMinerAPI(e *Practeum) *MinerAPI {
 	return &MinerAPI{e}
 }
 
@@ -137,11 +137,11 @@ func (api *MinerAPI) SetRecommitInterval(interval int) {
 // AdminAPI is the collection of practeum full node related APIs for node
 // administration.
 type AdminAPI struct {
-	eth *practeum
+	eth *Practeum
 }
 
 // NewAdminAPI creates a new instance of AdminAPI.
-func NewAdminAPI(eth *practeum) *AdminAPI {
+func NewAdminAPI(eth *Practeum) *AdminAPI {
 	return &AdminAPI{eth: eth}
 }
 
@@ -246,11 +246,11 @@ func (api *AdminAPI) ImportChain(file string) (bool, error) {
 // DebugAPI is the collection of practeum full node APIs for debugging the
 // protocol.
 type DebugAPI struct {
-	eth *practeum
+	eth *Practeum
 }
 
 // NewDebugAPI creates a new DebugAPI instance.
-func NewDebugAPI(eth *practeum) *DebugAPI {
+func NewDebugAPI(eth *Practeum) *DebugAPI {
 	return &DebugAPI{eth: eth}
 }
 

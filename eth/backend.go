@@ -63,7 +63,7 @@ import (
 type Config = ethconfig.Config
 
 // practeum implements the practeum full node service.
-type practeum struct {
+type Practeum struct {
 	config *ethconfig.Config
 
 	// Handlers
@@ -103,7 +103,7 @@ type practeum struct {
 
 // New creates a new practeum object (including the
 // initialisation of the common practeum object)
-func New(stack *node.Node, config *ethconfig.Config) (*practeum, error) {
+func New(stack *node.Node, config *ethconfig.Config) (*Practeum, error) {
 	// Ensure configuration values are compatible and sane
 	if config.SyncMode == downloader.LightSync {
 		return nil, errors.New("can't run eth.practeum in light sync mode, use les.Lightpracteum")
@@ -151,7 +151,7 @@ func New(stack *node.Node, config *ethconfig.Config) (*practeum, error) {
 		log.Error("Failed to recover state", "error", err)
 	}
 	merger := consensus.NewMerger(chainDb)
-	eth := &practeum{
+	eth := &Practeum{
 		config:            config,
 		merger:            merger,
 		chainDb:           chainDb,
@@ -296,7 +296,7 @@ func makeExtraData(extra []byte) []byte {
 
 // APIs return the collection of RPC services the practeum package offers.
 // NOTE, some of these services probably need to be moved to somewhere else.
-func (s *practeum) APIs() []rpc.API {
+func (s *Practeum) APIs() []rpc.API {
 	apis := ethapi.GetAPIs(s.APIBackend)
 
 	// Append any APIs exposed explicitly by the consensus engine
@@ -326,11 +326,11 @@ func (s *practeum) APIs() []rpc.API {
 	}...)
 }
 
-func (s *practeum) ResetWithGenesisBlock(gb *types.Block) {
+func (s *Practeum) ResetWithGenesisBlock(gb *types.Block) {
 	s.blockchain.ResetWithGenesisBlock(gb)
 }
 
-func (s *practeum) Etherbase() (eb common.Address, err error) {
+func (s *Practeum) Etherbase() (eb common.Address, err error) {
 	s.lock.RLock()
 	etherbase := s.etherbase
 	s.lock.RUnlock()
@@ -358,7 +358,7 @@ func (s *practeum) Etherbase() (eb common.Address, err error) {
 //
 // We regard two types of accounts as local miner account: etherbase
 // and accounts specified via `txpool.locals` flag.
-func (s *practeum) isLocalBlock(header *types.Header) bool {
+func (s *Practeum) isLocalBlock(header *types.Header) bool {
 	author, err := s.engine.Author(header)
 	if err != nil {
 		log.Warn("Failed to retrieve block author", "number", header.Number.Uint64(), "hash", header.Hash(), "err", err)
@@ -384,7 +384,7 @@ func (s *practeum) isLocalBlock(header *types.Header) bool {
 // shouldPreserve checks whether we should preserve the given block
 // during the chain reorg depending on whether the author of block
 // is a local account.
-func (s *practeum) shouldPreserve(header *types.Header) bool {
+func (s *Practeum) shouldPreserve(header *types.Header) bool {
 	// The reason we need to disable the self-reorg preserving for clique
 	// is it can be probable to introduce a deadlock.
 	//
@@ -408,7 +408,7 @@ func (s *practeum) shouldPreserve(header *types.Header) bool {
 }
 
 // SetEtherbase sets the mining reward address.
-func (s *practeum) SetEtherbase(etherbase common.Address) {
+func (s *Practeum) SetEtherbase(etherbase common.Address) {
 	s.lock.Lock()
 	s.etherbase = etherbase
 	s.lock.Unlock()
@@ -419,7 +419,7 @@ func (s *practeum) SetEtherbase(etherbase common.Address) {
 // StartMining starts the miner with the given number of CPU threads. If mining
 // is already running, this method adjust the number of threads allowed to use
 // and updates the minimum price required by the transaction pool.
-func (s *practeum) StartMining(threads int) error {
+func (s *Practeum) StartMining(threads int) error {
 	// Update the thread count within the consensus engine
 	type threaded interface {
 		SetThreads(threads int)
@@ -472,7 +472,7 @@ func (s *practeum) StartMining(threads int) error {
 
 // StopMining terminates the miner, both at the consensus engine level as well as
 // at the block creation level.
-func (s *practeum) StopMining() {
+func (s *Practeum) StopMining() {
 	// Update the thread count within the consensus engine
 	type threaded interface {
 		SetThreads(threads int)
@@ -484,30 +484,30 @@ func (s *practeum) StopMining() {
 	s.miner.Stop()
 }
 
-func (s *practeum) IsMining() bool      { return s.miner.Mining() }
-func (s *practeum) Miner() *miner.Miner { return s.miner }
+func (s *Practeum) IsMining() bool      { return s.miner.Mining() }
+func (s *Practeum) Miner() *miner.Miner { return s.miner }
 
-func (s *practeum) AccountManager() *accounts.Manager  { return s.accountManager }
-func (s *practeum) BlockChain() *core.BlockChain       { return s.blockchain }
-func (s *practeum) TxPool() *core.TxPool               { return s.txPool }
-func (s *practeum) EventMux() *event.TypeMux           { return s.eventMux }
-func (s *practeum) Engine() consensus.Engine           { return s.engine }
-func (s *practeum) ChainDb() ethdb.Database            { return s.chainDb }
-func (s *practeum) IsListening() bool                  { return true } // Always listening
-func (s *practeum) Downloader() *downloader.Downloader { return s.handler.downloader }
-func (s *practeum) Synced() bool                       { return atomic.LoadUint32(&s.handler.acceptTxs) == 1 }
-func (s *practeum) SetSynced()                         { atomic.StoreUint32(&s.handler.acceptTxs, 1) }
-func (s *practeum) ArchiveMode() bool                  { return s.config.NoPruning }
-func (s *practeum) BloomIndexer() *core.ChainIndexer   { return s.bloomIndexer }
-func (s *practeum) Merger() *consensus.Merger          { return s.merger }
-func (s *practeum) SyncMode() downloader.SyncMode {
+func (s *Practeum) AccountManager() *accounts.Manager  { return s.accountManager }
+func (s *Practeum) BlockChain() *core.BlockChain       { return s.blockchain }
+func (s *Practeum) TxPool() *core.TxPool               { return s.txPool }
+func (s *Practeum) EventMux() *event.TypeMux           { return s.eventMux }
+func (s *Practeum) Engine() consensus.Engine           { return s.engine }
+func (s *Practeum) ChainDb() ethdb.Database            { return s.chainDb }
+func (s *Practeum) IsListening() bool                  { return true } // Always listening
+func (s *Practeum) Downloader() *downloader.Downloader { return s.handler.downloader }
+func (s *Practeum) Synced() bool                       { return atomic.LoadUint32(&s.handler.acceptTxs) == 1 }
+func (s *Practeum) SetSynced()                         { atomic.StoreUint32(&s.handler.acceptTxs, 1) }
+func (s *Practeum) ArchiveMode() bool                  { return s.config.NoPruning }
+func (s *Practeum) BloomIndexer() *core.ChainIndexer   { return s.bloomIndexer }
+func (s *Practeum) Merger() *consensus.Merger          { return s.merger }
+func (s *Practeum) SyncMode() downloader.SyncMode {
 	mode, _ := s.handler.chainSync.modeAndLocalHead()
 	return mode
 }
 
 // Protocols returns all the currently configured
 // network protocols to start.
-func (s *practeum) Protocols() []p2p.Protocol {
+func (s *Practeum) Protocols() []p2p.Protocol {
 	protos := eth.MakeProtocols((*ethHandler)(s.handler), s.networkID, s.ethDialCandidates)
 	if s.config.SnapshotCache > 0 {
 		protos = append(protos, snap.MakeProtocols((*snapHandler)(s.handler), s.snapDialCandidates)...)
@@ -517,7 +517,7 @@ func (s *practeum) Protocols() []p2p.Protocol {
 
 // Start implements node.Lifecycle, starting all internal goroutines needed by the
 // practeum protocol implementation.
-func (s *practeum) Start() error {
+func (s *Practeum) Start() error {
 	eth.StartENRUpdater(s.blockchain, s.p2pServer.LocalNode())
 
 	// Start the bloom bits servicing goroutines
@@ -541,7 +541,7 @@ func (s *practeum) Start() error {
 
 // Stop implements node.Lifecycle, terminating all internal goroutines used by the
 // practeum protocol.
-func (s *practeum) Stop() error {
+func (s *Practeum) Stop() error {
 	// Stop all the peer-related stuff first.
 	s.ethDialCandidates.Close()
 	s.snapDialCandidates.Close()

@@ -44,7 +44,7 @@ import (
 type EthAPIBackend struct {
 	extRPCEnabled       bool
 	allowUnprotectedTxs bool
-	eth                 *practeum
+	eth                 *Practeum
 	gpo                 *gasprice.Oracle
 }
 

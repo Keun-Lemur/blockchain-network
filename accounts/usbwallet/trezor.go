@@ -27,13 +27,13 @@ import (
 	"io"
 	"math/big"
 
+	"github.com/golang/protobuf/proto"
 	"github.com/practeum-network-network/go-practeum/accounts"
 	"github.com/practeum-network-network/go-practeum/accounts/usbwallet/trezor"
 	"github.com/practeum-network-network/go-practeum/common"
 	"github.com/practeum-network-network/go-practeum/common/hexutil"
 	"github.com/practeum-network-network/go-practeum/core/types"
 	"github.com/practeum-network-network/go-practeum/log"
-	"github.com/golang/protobuf/proto"
 )
 
 // ErrTrezorPINNeeded is returned if opening the trezor requires a PIN code. In
@@ -192,8 +192,8 @@ func (w *trezorDriver) SignTypedMessage(path accounts.DerivationPath, domainHash
 // trezorDerive sends a derivation request to the Trezor device and returns the
 // practeum address located on that path.
 func (w *trezorDriver) trezorDerive(derivationPath []uint32) (common.Address, error) {
-	address := new(trezor.practeumAddress)
-	if _, err := w.trezorExchange(&trezor.practeumGetAddress{AddressN: derivationPath}, address); err != nil {
+	address := new(trezor.PracteumAddress)
+	if _, err := w.trezorExchange(&trezor.PracteumGetAddress{AddressN: derivationPath}, address); err != nil {
 		return common.Address{}, err
 	}
 	if addr := address.GetAddressBin(); len(addr) > 0 { // Older firmwares use binary formats
@@ -212,7 +212,7 @@ func (w *trezorDriver) trezorSign(derivationPath []uint32, tx *types.Transaction
 	data := tx.Data()
 	length := uint32(len(data))
 
-	request := &trezor.practeumSignTx{
+	request := &trezor.PracteumSignTx{
 		AddressN:   derivationPath,
 		Nonce:      new(big.Int).SetUint64(tx.Nonce()).Bytes(),
 		GasPrice:   tx.GasPrice().Bytes(),
@@ -236,7 +236,7 @@ func (w *trezorDriver) trezorSign(derivationPath []uint32, tx *types.Transaction
 		request.ChainId = &id
 	}
 	// Send the initiation message and stream content until a signature is returned
-	response := new(trezor.practeumTxRequest)
+	response := new(trezor.PracteumTxRequest)
 	if _, err := w.trezorExchange(request, response); err != nil {
 		return common.Address{}, nil, err
 	}
@@ -244,7 +244,7 @@ func (w *trezorDriver) trezorSign(derivationPath []uint32, tx *types.Transaction
 		chunk := data[:*response.DataLength]
 		data = data[*response.DataLength:]
 
-		if _, err := w.trezorExchange(&trezor.practeumTxAck{DataChunk: chunk}, response); err != nil {
+		if _, err := w.trezorExchange(&trezor.PracteumTxAck{DataChunk: chunk}, response); err != nil {
 			return common.Address{}, nil, err
 		}
 	}

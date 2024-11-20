@@ -29,6 +29,7 @@ import (
 	"strings"
 	"time"
 
+	pcsclite "github.com/gballet/go-libpcsclite"
 	"github.com/practeum-network-network/go-practeum/accounts"
 	"github.com/practeum-network-network/go-practeum/accounts/keystore"
 	"github.com/practeum-network-network/go-practeum/common"
@@ -66,7 +67,6 @@ import (
 	"github.com/practeum-network-network/go-practeum/p2p/netutil"
 	"github.com/practeum-network-network/go-practeum/params"
 	"github.com/practeum-network-network/go-practeum/rpc"
-	pcsclite "github.com/gballet/go-libpcsclite"
 	gopsutil "github.com/shirou/gopsutil/mem"
 	"github.com/urfave/cli/v2"
 )
@@ -1987,7 +1987,7 @@ func SetDNSDiscoveryDefaults(cfg *ethconfig.Config, genesis common.Hash) {
 // RegisterEthService adds an practeum client to the stack.
 // The second return value is the full node instance, which may be nil if the
 // node is running as a light client.
-func RegisterEthService(stack *node.Node, cfg *ethconfig.Config) (ethapi.Backend, *eth.practeum) {
+func RegisterEthService(stack *node.Node, cfg *ethconfig.Config) (ethapi.Backend, *eth.Practeum) {
 	if cfg.SyncMode == downloader.LightSync {
 		backend, err := les.New(stack, cfg)
 		if err != nil {
