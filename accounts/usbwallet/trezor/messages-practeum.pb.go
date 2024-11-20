@@ -26,7 +26,7 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 // @start
 // @next practeumPublicKey
 // @next Failure
-type practeumGetPublicKey struct {
+type PracteumGetPublicKey struct {
 	AddressN             []uint32 `protobuf:"varint,1,rep,name=address_n,json=addressN" json:"address_n,omitempty"`
 	ShowDisplay          *bool    `protobuf:"varint,2,opt,name=show_display,json=showDisplay" json:"show_display,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -34,39 +34,39 @@ type practeumGetPublicKey struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *practeumGetPublicKey) Reset()         { *m = practeumGetPublicKey{} }
-func (m *practeumGetPublicKey) String() string { return proto.CompactTextString(m) }
-func (*practeumGetPublicKey) ProtoMessage()    {}
-func (*practeumGetPublicKey) Descriptor() ([]byte, []int) {
+func (m *PracteumGetPublicKey) Reset()         { *m = PracteumGetPublicKey{} }
+func (m *PracteumGetPublicKey) String() string { return proto.CompactTextString(m) }
+func (*PracteumGetPublicKey) ProtoMessage()    {}
+func (*PracteumGetPublicKey) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{0}
 }
 
-func (m *practeumGetPublicKey) XXX_Unmarshal(b []byte) error {
+func (m *PracteumGetPublicKey) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumGetPublicKey.Unmarshal(m, b)
 }
-func (m *practeumGetPublicKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumGetPublicKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumGetPublicKey.Marshal(b, m, deterministic)
 }
-func (m *practeumGetPublicKey) XXX_Merge(src proto.Message) {
+func (m *PracteumGetPublicKey) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumGetPublicKey.Merge(m, src)
 }
-func (m *practeumGetPublicKey) XXX_Size() int {
+func (m *PracteumGetPublicKey) XXX_Size() int {
 	return xxx_messageInfo_practeumGetPublicKey.Size(m)
 }
-func (m *practeumGetPublicKey) XXX_DiscardUnknown() {
+func (m *PracteumGetPublicKey) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumGetPublicKey.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumGetPublicKey proto.InternalMessageInfo
 
-func (m *practeumGetPublicKey) GetAddressN() []uint32 {
+func (m *PracteumGetPublicKey) GetAddressN() []uint32 {
 	if m != nil {
 		return m.AddressN
 	}
 	return nil
 }
 
-func (m *practeumGetPublicKey) GetShowDisplay() bool {
+func (m *PracteumGetPublicKey) GetShowDisplay() bool {
 	if m != nil && m.ShowDisplay != nil {
 		return *m.ShowDisplay
 	}
@@ -76,7 +76,7 @@ func (m *practeumGetPublicKey) GetShowDisplay() bool {
 //*
 // Response: Contains public key derived from device private seed
 // @end
-type practeumPublicKey struct {
+type PracteumPublicKey struct {
 	Node                 *HDNodeType `protobuf:"bytes,1,opt,name=node" json:"node,omitempty"`
 	Xpub                 *string     `protobuf:"bytes,2,opt,name=xpub" json:"xpub,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
@@ -84,39 +84,39 @@ type practeumPublicKey struct {
 	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *practeumPublicKey) Reset()         { *m = practeumPublicKey{} }
-func (m *practeumPublicKey) String() string { return proto.CompactTextString(m) }
-func (*practeumPublicKey) ProtoMessage()    {}
-func (*practeumPublicKey) Descriptor() ([]byte, []int) {
+func (m *PracteumPublicKey) Reset()         { *m = PracteumPublicKey{} }
+func (m *PracteumPublicKey) String() string { return proto.CompactTextString(m) }
+func (*PracteumPublicKey) ProtoMessage()    {}
+func (*PracteumPublicKey) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{1}
 }
 
-func (m *practeumPublicKey) XXX_Unmarshal(b []byte) error {
+func (m *PracteumPublicKey) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumPublicKey.Unmarshal(m, b)
 }
-func (m *practeumPublicKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumPublicKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumPublicKey.Marshal(b, m, deterministic)
 }
-func (m *practeumPublicKey) XXX_Merge(src proto.Message) {
+func (m *PracteumPublicKey) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumPublicKey.Merge(m, src)
 }
-func (m *practeumPublicKey) XXX_Size() int {
+func (m *PracteumPublicKey) XXX_Size() int {
 	return xxx_messageInfo_practeumPublicKey.Size(m)
 }
-func (m *practeumPublicKey) XXX_DiscardUnknown() {
+func (m *PracteumPublicKey) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumPublicKey.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumPublicKey proto.InternalMessageInfo
 
-func (m *practeumPublicKey) GetNode() *HDNodeType {
+func (m *PracteumPublicKey) GetNode() *HDNodeType {
 	if m != nil {
 		return m.Node
 	}
 	return nil
 }
 
-func (m *practeumPublicKey) GetXpub() string {
+func (m *PracteumPublicKey) GetXpub() string {
 	if m != nil && m.Xpub != nil {
 		return *m.Xpub
 	}
@@ -128,7 +128,7 @@ func (m *practeumPublicKey) GetXpub() string {
 // @start
 // @next practeumAddress
 // @next Failure
-type practeumGetAddress struct {
+type PracteumGetAddress struct {
 	AddressN             []uint32 `protobuf:"varint,1,rep,name=address_n,json=addressN" json:"address_n,omitempty"`
 	ShowDisplay          *bool    `protobuf:"varint,2,opt,name=show_display,json=showDisplay" json:"show_display,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -136,39 +136,39 @@ type practeumGetAddress struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *practeumGetAddress) Reset()         { *m = practeumGetAddress{} }
-func (m *practeumGetAddress) String() string { return proto.CompactTextString(m) }
-func (*practeumGetAddress) ProtoMessage()    {}
-func (*practeumGetAddress) Descriptor() ([]byte, []int) {
+func (m *PracteumGetAddress) Reset()         { *m = PracteumGetAddress{} }
+func (m *PracteumGetAddress) String() string { return proto.CompactTextString(m) }
+func (*PracteumGetAddress) ProtoMessage()    {}
+func (*PracteumGetAddress) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{2}
 }
 
-func (m *practeumGetAddress) XXX_Unmarshal(b []byte) error {
+func (m *PracteumGetAddress) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumGetAddress.Unmarshal(m, b)
 }
-func (m *practeumGetAddress) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumGetAddress) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumGetAddress.Marshal(b, m, deterministic)
 }
-func (m *practeumGetAddress) XXX_Merge(src proto.Message) {
+func (m *PracteumGetAddress) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumGetAddress.Merge(m, src)
 }
-func (m *practeumGetAddress) XXX_Size() int {
+func (m *PracteumGetAddress) XXX_Size() int {
 	return xxx_messageInfo_practeumGetAddress.Size(m)
 }
-func (m *practeumGetAddress) XXX_DiscardUnknown() {
+func (m *PracteumGetAddress) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumGetAddress.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumGetAddress proto.InternalMessageInfo
 
-func (m *practeumGetAddress) GetAddressN() []uint32 {
+func (m *PracteumGetAddress) GetAddressN() []uint32 {
 	if m != nil {
 		return m.AddressN
 	}
 	return nil
 }
 
-func (m *practeumGetAddress) GetShowDisplay() bool {
+func (m *PracteumGetAddress) GetShowDisplay() bool {
 	if m != nil && m.ShowDisplay != nil {
 		return *m.ShowDisplay
 	}
@@ -178,7 +178,7 @@ func (m *practeumGetAddress) GetShowDisplay() bool {
 //*
 // Response: Contains an practeum address derived from device private seed
 // @end
-type practeumAddress struct {
+type PracteumAddress struct {
 	AddressBin           []byte   `protobuf:"bytes,1,opt,name=addressBin" json:"addressBin,omitempty"`
 	AddressHex           *string  `protobuf:"bytes,2,opt,name=addressHex" json:"addressHex,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -186,39 +186,39 @@ type practeumAddress struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *practeumAddress) Reset()         { *m = practeumAddress{} }
-func (m *practeumAddress) String() string { return proto.CompactTextString(m) }
-func (*practeumAddress) ProtoMessage()    {}
-func (*practeumAddress) Descriptor() ([]byte, []int) {
+func (m *PracteumAddress) Reset()         { *m = PracteumAddress{} }
+func (m *PracteumAddress) String() string { return proto.CompactTextString(m) }
+func (*PracteumAddress) ProtoMessage()    {}
+func (*PracteumAddress) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{3}
 }
 
-func (m *practeumAddress) XXX_Unmarshal(b []byte) error {
+func (m *PracteumAddress) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumAddress.Unmarshal(m, b)
 }
-func (m *practeumAddress) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumAddress) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumAddress.Marshal(b, m, deterministic)
 }
-func (m *practeumAddress) XXX_Merge(src proto.Message) {
+func (m *PracteumAddress) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumAddress.Merge(m, src)
 }
-func (m *practeumAddress) XXX_Size() int {
+func (m *PracteumAddress) XXX_Size() int {
 	return xxx_messageInfo_practeumAddress.Size(m)
 }
-func (m *practeumAddress) XXX_DiscardUnknown() {
+func (m *PracteumAddress) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumAddress.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumAddress proto.InternalMessageInfo
 
-func (m *practeumAddress) GetAddressBin() []byte {
+func (m *PracteumAddress) GetAddressBin() []byte {
 	if m != nil {
 		return m.AddressBin
 	}
 	return nil
 }
 
-func (m *practeumAddress) GetAddressHex() string {
+func (m *PracteumAddress) GetAddressHex() string {
 	if m != nil && m.AddressHex != nil {
 		return *m.AddressHex
 	}
@@ -232,7 +232,7 @@ func (m *practeumAddress) GetAddressHex() string {
 // @start
 // @next practeumTxRequest
 // @next Failure
-type practeumSignTx struct {
+type PracteumSignTx struct {
 	AddressN             []uint32 `protobuf:"varint,1,rep,name=address_n,json=addressN" json:"address_n,omitempty"`
 	Nonce                []byte   `protobuf:"bytes,2,opt,name=nonce" json:"nonce,omitempty"`
 	GasPrice             []byte   `protobuf:"bytes,3,opt,name=gas_price,json=gasPrice" json:"gas_price,omitempty"`
@@ -249,102 +249,102 @@ type practeumSignTx struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *practeumSignTx) Reset()         { *m = practeumSignTx{} }
-func (m *practeumSignTx) String() string { return proto.CompactTextString(m) }
-func (*practeumSignTx) ProtoMessage()    {}
-func (*practeumSignTx) Descriptor() ([]byte, []int) {
+func (m *PracteumSignTx) Reset()         { *m = PracteumSignTx{} }
+func (m *PracteumSignTx) String() string { return proto.CompactTextString(m) }
+func (*PracteumSignTx) ProtoMessage()    {}
+func (*PracteumSignTx) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{4}
 }
 
-func (m *practeumSignTx) XXX_Unmarshal(b []byte) error {
+func (m *PracteumSignTx) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumSignTx.Unmarshal(m, b)
 }
-func (m *practeumSignTx) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumSignTx) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumSignTx.Marshal(b, m, deterministic)
 }
-func (m *practeumSignTx) XXX_Merge(src proto.Message) {
+func (m *PracteumSignTx) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumSignTx.Merge(m, src)
 }
-func (m *practeumSignTx) XXX_Size() int {
+func (m *PracteumSignTx) XXX_Size() int {
 	return xxx_messageInfo_practeumSignTx.Size(m)
 }
-func (m *practeumSignTx) XXX_DiscardUnknown() {
+func (m *PracteumSignTx) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumSignTx.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumSignTx proto.InternalMessageInfo
 
-func (m *practeumSignTx) GetAddressN() []uint32 {
+func (m *PracteumSignTx) GetAddressN() []uint32 {
 	if m != nil {
 		return m.AddressN
 	}
 	return nil
 }
 
-func (m *practeumSignTx) GetNonce() []byte {
+func (m *PracteumSignTx) GetNonce() []byte {
 	if m != nil {
 		return m.Nonce
 	}
 	return nil
 }
 
-func (m *practeumSignTx) GetGasPrice() []byte {
+func (m *PracteumSignTx) GetGasPrice() []byte {
 	if m != nil {
 		return m.GasPrice
 	}
 	return nil
 }
 
-func (m *practeumSignTx) GetGasLimit() []byte {
+func (m *PracteumSignTx) GetGasLimit() []byte {
 	if m != nil {
 		return m.GasLimit
 	}
 	return nil
 }
 
-func (m *practeumSignTx) GetToBin() []byte {
+func (m *PracteumSignTx) GetToBin() []byte {
 	if m != nil {
 		return m.ToBin
 	}
 	return nil
 }
 
-func (m *practeumSignTx) GetToHex() string {
+func (m *PracteumSignTx) GetToHex() string {
 	if m != nil && m.ToHex != nil {
 		return *m.ToHex
 	}
 	return ""
 }
 
-func (m *practeumSignTx) GetValue() []byte {
+func (m *PracteumSignTx) GetValue() []byte {
 	if m != nil {
 		return m.Value
 	}
 	return nil
 }
 
-func (m *practeumSignTx) GetDataInitialChunk() []byte {
+func (m *PracteumSignTx) GetDataInitialChunk() []byte {
 	if m != nil {
 		return m.DataInitialChunk
 	}
 	return nil
 }
 
-func (m *practeumSignTx) GetDataLength() uint32 {
+func (m *PracteumSignTx) GetDataLength() uint32 {
 	if m != nil && m.DataLength != nil {
 		return *m.DataLength
 	}
 	return 0
 }
 
-func (m *practeumSignTx) GetChainId() uint32 {
+func (m *PracteumSignTx) GetChainId() uint32 {
 	if m != nil && m.ChainId != nil {
 		return *m.ChainId
 	}
 	return 0
 }
 
-func (m *practeumSignTx) GetTxType() uint32 {
+func (m *PracteumSignTx) GetTxType() uint32 {
 	if m != nil && m.TxType != nil {
 		return *m.TxType
 	}
@@ -357,7 +357,7 @@ func (m *practeumSignTx) GetTxType() uint32 {
 // Otherwise, the signature_* fields contain the computed transaction signature. All three fields will be present.
 // @end
 // @next practeumTxAck
-type practeumTxRequest struct {
+type PracteumTxRequest struct {
 	DataLength           *uint32  `protobuf:"varint,1,opt,name=data_length,json=dataLength" json:"data_length,omitempty"`
 	SignatureV           *uint32  `protobuf:"varint,2,opt,name=signature_v,json=signatureV" json:"signature_v,omitempty"`
 	SignatureR           []byte   `protobuf:"bytes,3,opt,name=signature_r,json=signatureR" json:"signature_r,omitempty"`
@@ -367,53 +367,53 @@ type practeumTxRequest struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *practeumTxRequest) Reset()         { *m = practeumTxRequest{} }
-func (m *practeumTxRequest) String() string { return proto.CompactTextString(m) }
-func (*practeumTxRequest) ProtoMessage()    {}
-func (*practeumTxRequest) Descriptor() ([]byte, []int) {
+func (m *PracteumTxRequest) Reset()         { *m = PracteumTxRequest{} }
+func (m *PracteumTxRequest) String() string { return proto.CompactTextString(m) }
+func (*PracteumTxRequest) ProtoMessage()    {}
+func (*PracteumTxRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{5}
 }
 
-func (m *practeumTxRequest) XXX_Unmarshal(b []byte) error {
+func (m *PracteumTxRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumTxRequest.Unmarshal(m, b)
 }
-func (m *practeumTxRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumTxRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumTxRequest.Marshal(b, m, deterministic)
 }
-func (m *practeumTxRequest) XXX_Merge(src proto.Message) {
+func (m *PracteumTxRequest) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumTxRequest.Merge(m, src)
 }
-func (m *practeumTxRequest) XXX_Size() int {
+func (m *PracteumTxRequest) XXX_Size() int {
 	return xxx_messageInfo_practeumTxRequest.Size(m)
 }
-func (m *practeumTxRequest) XXX_DiscardUnknown() {
+func (m *PracteumTxRequest) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumTxRequest.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumTxRequest proto.InternalMessageInfo
 
-func (m *practeumTxRequest) GetDataLength() uint32 {
+func (m *PracteumTxRequest) GetDataLength() uint32 {
 	if m != nil && m.DataLength != nil {
 		return *m.DataLength
 	}
 	return 0
 }
 
-func (m *practeumTxRequest) GetSignatureV() uint32 {
+func (m *PracteumTxRequest) GetSignatureV() uint32 {
 	if m != nil && m.SignatureV != nil {
 		return *m.SignatureV
 	}
 	return 0
 }
 
-func (m *practeumTxRequest) GetSignatureR() []byte {
+func (m *PracteumTxRequest) GetSignatureR() []byte {
 	if m != nil {
 		return m.SignatureR
 	}
 	return nil
 }
 
-func (m *practeumTxRequest) GetSignatureS() []byte {
+func (m *PracteumTxRequest) GetSignatureS() []byte {
 	if m != nil {
 		return m.SignatureS
 	}
@@ -423,39 +423,39 @@ func (m *practeumTxRequest) GetSignatureS() []byte {
 //*
 // Request: Transaction payload data.
 // @next practeumTxRequest
-type practeumTxAck struct {
+type PracteumTxAck struct {
 	DataChunk            []byte   `protobuf:"bytes,1,opt,name=data_chunk,json=dataChunk" json:"data_chunk,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *practeumTxAck) Reset()         { *m = practeumTxAck{} }
-func (m *practeumTxAck) String() string { return proto.CompactTextString(m) }
-func (*practeumTxAck) ProtoMessage()    {}
-func (*practeumTxAck) Descriptor() ([]byte, []int) {
+func (m *PracteumTxAck) Reset()         { *m = PracteumTxAck{} }
+func (m *PracteumTxAck) String() string { return proto.CompactTextString(m) }
+func (*PracteumTxAck) ProtoMessage()    {}
+func (*PracteumTxAck) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{6}
 }
 
-func (m *practeumTxAck) XXX_Unmarshal(b []byte) error {
+func (m *PracteumTxAck) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumTxAck.Unmarshal(m, b)
 }
-func (m *practeumTxAck) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumTxAck) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumTxAck.Marshal(b, m, deterministic)
 }
-func (m *practeumTxAck) XXX_Merge(src proto.Message) {
+func (m *PracteumTxAck) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumTxAck.Merge(m, src)
 }
-func (m *practeumTxAck) XXX_Size() int {
+func (m *PracteumTxAck) XXX_Size() int {
 	return xxx_messageInfo_practeumTxAck.Size(m)
 }
-func (m *practeumTxAck) XXX_DiscardUnknown() {
+func (m *PracteumTxAck) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumTxAck.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumTxAck proto.InternalMessageInfo
 
-func (m *practeumTxAck) GetDataChunk() []byte {
+func (m *PracteumTxAck) GetDataChunk() []byte {
 	if m != nil {
 		return m.DataChunk
 	}
@@ -467,7 +467,7 @@ func (m *practeumTxAck) GetDataChunk() []byte {
 // @start
 // @next practeumMessageSignature
 // @next Failure
-type practeumSignMessage struct {
+type PracteumSignMessage struct {
 	AddressN             []uint32 `protobuf:"varint,1,rep,name=address_n,json=addressN" json:"address_n,omitempty"`
 	Message              []byte   `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -475,39 +475,39 @@ type practeumSignMessage struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *practeumSignMessage) Reset()         { *m = practeumSignMessage{} }
-func (m *practeumSignMessage) String() string { return proto.CompactTextString(m) }
-func (*practeumSignMessage) ProtoMessage()    {}
-func (*practeumSignMessage) Descriptor() ([]byte, []int) {
+func (m *PracteumSignMessage) Reset()         { *m = PracteumSignMessage{} }
+func (m *PracteumSignMessage) String() string { return proto.CompactTextString(m) }
+func (*PracteumSignMessage) ProtoMessage()    {}
+func (*PracteumSignMessage) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{7}
 }
 
-func (m *practeumSignMessage) XXX_Unmarshal(b []byte) error {
+func (m *PracteumSignMessage) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumSignMessage.Unmarshal(m, b)
 }
-func (m *practeumSignMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumSignMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumSignMessage.Marshal(b, m, deterministic)
 }
-func (m *practeumSignMessage) XXX_Merge(src proto.Message) {
+func (m *PracteumSignMessage) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumSignMessage.Merge(m, src)
 }
-func (m *practeumSignMessage) XXX_Size() int {
+func (m *PracteumSignMessage) XXX_Size() int {
 	return xxx_messageInfo_practeumSignMessage.Size(m)
 }
-func (m *practeumSignMessage) XXX_DiscardUnknown() {
+func (m *PracteumSignMessage) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumSignMessage.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumSignMessage proto.InternalMessageInfo
 
-func (m *practeumSignMessage) GetAddressN() []uint32 {
+func (m *PracteumSignMessage) GetAddressN() []uint32 {
 	if m != nil {
 		return m.AddressN
 	}
 	return nil
 }
 
-func (m *practeumSignMessage) GetMessage() []byte {
+func (m *PracteumSignMessage) GetMessage() []byte {
 	if m != nil {
 		return m.Message
 	}
@@ -517,7 +517,7 @@ func (m *practeumSignMessage) GetMessage() []byte {
 //*
 // Response: Signed message
 // @end
-type practeumMessageSignature struct {
+type PracteumMessageSignature struct {
 	AddressBin           []byte   `protobuf:"bytes,1,opt,name=addressBin" json:"addressBin,omitempty"`
 	Signature            []byte   `protobuf:"bytes,2,opt,name=signature" json:"signature,omitempty"`
 	AddressHex           *string  `protobuf:"bytes,3,opt,name=addressHex" json:"addressHex,omitempty"`
@@ -526,46 +526,46 @@ type practeumMessageSignature struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *practeumMessageSignature) Reset()         { *m = practeumMessageSignature{} }
-func (m *practeumMessageSignature) String() string { return proto.CompactTextString(m) }
-func (*practeumMessageSignature) ProtoMessage()    {}
-func (*practeumMessageSignature) Descriptor() ([]byte, []int) {
+func (m *PracteumMessageSignature) Reset()         { *m = PracteumMessageSignature{} }
+func (m *PracteumMessageSignature) String() string { return proto.CompactTextString(m) }
+func (*PracteumMessageSignature) ProtoMessage()    {}
+func (*PracteumMessageSignature) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{8}
 }
 
-func (m *practeumMessageSignature) XXX_Unmarshal(b []byte) error {
+func (m *PracteumMessageSignature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumMessageSignature.Unmarshal(m, b)
 }
-func (m *practeumMessageSignature) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumMessageSignature) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumMessageSignature.Marshal(b, m, deterministic)
 }
-func (m *practeumMessageSignature) XXX_Merge(src proto.Message) {
+func (m *PracteumMessageSignature) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumMessageSignature.Merge(m, src)
 }
-func (m *practeumMessageSignature) XXX_Size() int {
+func (m *PracteumMessageSignature) XXX_Size() int {
 	return xxx_messageInfo_practeumMessageSignature.Size(m)
 }
-func (m *practeumMessageSignature) XXX_DiscardUnknown() {
+func (m *PracteumMessageSignature) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumMessageSignature.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumMessageSignature proto.InternalMessageInfo
 
-func (m *practeumMessageSignature) GetAddressBin() []byte {
+func (m *PracteumMessageSignature) GetAddressBin() []byte {
 	if m != nil {
 		return m.AddressBin
 	}
 	return nil
 }
 
-func (m *practeumMessageSignature) GetSignature() []byte {
+func (m *PracteumMessageSignature) GetSignature() []byte {
 	if m != nil {
 		return m.Signature
 	}
 	return nil
 }
 
-func (m *practeumMessageSignature) GetAddressHex() string {
+func (m *PracteumMessageSignature) GetAddressHex() string {
 	if m != nil && m.AddressHex != nil {
 		return *m.AddressHex
 	}
@@ -577,7 +577,7 @@ func (m *practeumMessageSignature) GetAddressHex() string {
 // @start
 // @next Success
 // @next Failure
-type practeumVerifyMessage struct {
+type PracteumVerifyMessage struct {
 	AddressBin           []byte   `protobuf:"bytes,1,opt,name=addressBin" json:"addressBin,omitempty"`
 	Signature            []byte   `protobuf:"bytes,2,opt,name=signature" json:"signature,omitempty"`
 	Message              []byte   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
@@ -587,53 +587,53 @@ type practeumVerifyMessage struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *practeumVerifyMessage) Reset()         { *m = practeumVerifyMessage{} }
-func (m *practeumVerifyMessage) String() string { return proto.CompactTextString(m) }
-func (*practeumVerifyMessage) ProtoMessage()    {}
-func (*practeumVerifyMessage) Descriptor() ([]byte, []int) {
+func (m *PracteumVerifyMessage) Reset()         { *m = PracteumVerifyMessage{} }
+func (m *PracteumVerifyMessage) String() string { return proto.CompactTextString(m) }
+func (*PracteumVerifyMessage) ProtoMessage()    {}
+func (*PracteumVerifyMessage) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cb33f46ba915f15c, []int{9}
 }
 
-func (m *practeumVerifyMessage) XXX_Unmarshal(b []byte) error {
+func (m *PracteumVerifyMessage) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_practeumVerifyMessage.Unmarshal(m, b)
 }
-func (m *practeumVerifyMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PracteumVerifyMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_practeumVerifyMessage.Marshal(b, m, deterministic)
 }
-func (m *practeumVerifyMessage) XXX_Merge(src proto.Message) {
+func (m *PracteumVerifyMessage) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_practeumVerifyMessage.Merge(m, src)
 }
-func (m *practeumVerifyMessage) XXX_Size() int {
+func (m *PracteumVerifyMessage) XXX_Size() int {
 	return xxx_messageInfo_practeumVerifyMessage.Size(m)
 }
-func (m *practeumVerifyMessage) XXX_DiscardUnknown() {
+func (m *PracteumVerifyMessage) XXX_DiscardUnknown() {
 	xxx_messageInfo_practeumVerifyMessage.DiscardUnknown(m)
 }
 
 var xxx_messageInfo_practeumVerifyMessage proto.InternalMessageInfo
 
-func (m *practeumVerifyMessage) GetAddressBin() []byte {
+func (m *PracteumVerifyMessage) GetAddressBin() []byte {
 	if m != nil {
 		return m.AddressBin
 	}
 	return nil
 }
 
-func (m *practeumVerifyMessage) GetSignature() []byte {
+func (m *PracteumVerifyMessage) GetSignature() []byte {
 	if m != nil {
 		return m.Signature
 	}
 	return nil
 }
 
-func (m *practeumVerifyMessage) GetMessage() []byte {
+func (m *PracteumVerifyMessage) GetMessage() []byte {
 	if m != nil {
 		return m.Message
 	}
 	return nil
 }
 
-func (m *practeumVerifyMessage) GetAddressHex() string {
+func (m *PracteumVerifyMessage) GetAddressHex() string {
 	if m != nil && m.AddressHex != nil {
 		return *m.AddressHex
 	}
@@ -641,16 +641,16 @@ func (m *practeumVerifyMessage) GetAddressHex() string {
 }
 
 func init() {
-	proto.RegisterType((*practeumGetPublicKey)(nil), "hw.trezor.messages.practeum.practeumGetPublicKey")
-	proto.RegisterType((*practeumPublicKey)(nil), "hw.trezor.messages.practeum.practeumPublicKey")
-	proto.RegisterType((*practeumGetAddress)(nil), "hw.trezor.messages.practeum.practeumGetAddress")
-	proto.RegisterType((*practeumAddress)(nil), "hw.trezor.messages.practeum.practeumAddress")
-	proto.RegisterType((*practeumSignTx)(nil), "hw.trezor.messages.practeum.practeumSignTx")
-	proto.RegisterType((*practeumTxRequest)(nil), "hw.trezor.messages.practeum.practeumTxRequest")
-	proto.RegisterType((*practeumTxAck)(nil), "hw.trezor.messages.practeum.practeumTxAck")
-	proto.RegisterType((*practeumSignMessage)(nil), "hw.trezor.messages.practeum.practeumSignMessage")
-	proto.RegisterType((*practeumMessageSignature)(nil), "hw.trezor.messages.practeum.practeumMessageSignature")
-	proto.RegisterType((*practeumVerifyMessage)(nil), "hw.trezor.messages.practeum.practeumVerifyMessage")
+	proto.RegisterType((*PracteumGetPublicKey)(nil), "hw.trezor.messages.practeum.practeumGetPublicKey")
+	proto.RegisterType((*PracteumPublicKey)(nil), "hw.trezor.messages.practeum.practeumPublicKey")
+	proto.RegisterType((*PracteumGetAddress)(nil), "hw.trezor.messages.practeum.practeumGetAddress")
+	proto.RegisterType((*PracteumAddress)(nil), "hw.trezor.messages.practeum.practeumAddress")
+	proto.RegisterType((*PracteumSignTx)(nil), "hw.trezor.messages.practeum.practeumSignTx")
+	proto.RegisterType((*PracteumTxRequest)(nil), "hw.trezor.messages.practeum.practeumTxRequest")
+	proto.RegisterType((*PracteumTxAck)(nil), "hw.trezor.messages.practeum.practeumTxAck")
+	proto.RegisterType((*PracteumSignMessage)(nil), "hw.trezor.messages.practeum.practeumSignMessage")
+	proto.RegisterType((*PracteumMessageSignature)(nil), "hw.trezor.messages.practeum.practeumMessageSignature")
+	proto.RegisterType((*PracteumVerifyMessage)(nil), "hw.trezor.messages.practeum.practeumVerifyMessage")
 }
 
 func init() { proto.RegisterFile("messages-practeum.proto", fileDescriptor_cb33f46ba915f15c) }
