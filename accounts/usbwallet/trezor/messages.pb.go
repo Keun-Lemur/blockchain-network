@@ -96,17 +96,17 @@ const (
 	MessageType_MessageType_DebugLinkMemory      MessageType = 111
 	MessageType_MessageType_DebugLinkMemoryWrite MessageType = 112
 	MessageType_MessageType_DebugLinkFlashErase  MessageType = 113
-	// practeum
-	MessageType_MessageType_practeumGetPublicKey     MessageType = 450
-	MessageType_MessageType_practeumPublicKey        MessageType = 451
-	MessageType_MessageType_practeumGetAddress       MessageType = 56
-	MessageType_MessageType_practeumAddress          MessageType = 57
-	MessageType_MessageType_practeumSignTx           MessageType = 58
-	MessageType_MessageType_practeumTxRequest        MessageType = 59
-	MessageType_MessageType_practeumTxAck            MessageType = 60
-	MessageType_MessageType_practeumSignMessage      MessageType = 64
-	MessageType_MessageType_practeumVerifyMessage    MessageType = 65
-	MessageType_MessageType_practeumMessageSignature MessageType = 66
+	// Practeum
+	MessageType_MessageType_PracteumGetPublicKey     MessageType = 450
+	MessageType_MessageType_PracteumPublicKey        MessageType = 451
+	MessageType_MessageType_PracteumGetAddress       MessageType = 56
+	MessageType_MessageType_PracteumAddress          MessageType = 57
+	MessageType_MessageType_PracteumSignTx           MessageType = 58
+	MessageType_MessageType_PracteumTxRequest        MessageType = 59
+	MessageType_MessageType_PracteumTxAck            MessageType = 60
+	MessageType_MessageType_PracteumSignMessage      MessageType = 64
+	MessageType_MessageType_PracteumVerifyMessage    MessageType = 65
+	MessageType_MessageType_PracteumMessageSignature MessageType = 66
 	// NEM
 	MessageType_MessageType_NEMGetAddress       MessageType = 67
 	MessageType_MessageType_NEMAddress          MessageType = 68
@@ -306,16 +306,16 @@ var MessageType_name = map[int32]string{
 	111: "MessageType_DebugLinkMemory",
 	112: "MessageType_DebugLinkMemoryWrite",
 	113: "MessageType_DebugLinkFlashErase",
-	450: "MessageType_practeumGetPublicKey",
-	451: "MessageType_practeumPublicKey",
-	56:  "MessageType_practeumGetAddress",
-	57:  "MessageType_practeumAddress",
-	58:  "MessageType_practeumSignTx",
-	59:  "MessageType_practeumTxRequest",
-	60:  "MessageType_practeumTxAck",
-	64:  "MessageType_practeumSignMessage",
-	65:  "MessageType_practeumVerifyMessage",
-	66:  "MessageType_practeumMessageSignature",
+	450: "MessageType_PracteumGetPublicKey",
+	451: "MessageType_PracteumPublicKey",
+	56:  "MessageType_PracteumGetAddress",
+	57:  "MessageType_PracteumAddress",
+	58:  "MessageType_PracteumSignTx",
+	59:  "MessageType_PracteumTxRequest",
+	60:  "MessageType_PracteumTxAck",
+	64:  "MessageType_PracteumSignMessage",
+	65:  "MessageType_PracteumVerifyMessage",
+	66:  "MessageType_PracteumMessageSignature",
 	67:  "MessageType_NEMGetAddress",
 	68:  "MessageType_NEMAddress",
 	69:  "MessageType_NEMSignTx",
@@ -502,16 +502,16 @@ var MessageType_value = map[string]int32{
 	"MessageType_DebugLinkMemory":                           111,
 	"MessageType_DebugLinkMemoryWrite":                      112,
 	"MessageType_DebugLinkFlashErase":                       113,
-	"MessageType_practeumGetPublicKey":                      450,
-	"MessageType_practeumPublicKey":                         451,
-	"MessageType_practeumGetAddress":                        56,
-	"MessageType_practeumAddress":                           57,
-	"MessageType_practeumSignTx":                            58,
-	"MessageType_practeumTxRequest":                         59,
-	"MessageType_practeumTxAck":                             60,
-	"MessageType_practeumSignMessage":                       64,
-	"MessageType_practeumVerifyMessage":                     65,
-	"MessageType_practeumMessageSignature":                  66,
+	"MessageType_PracteumGetPublicKey":                      450,
+	"MessageType_PracteumPublicKey":                         451,
+	"MessageType_PracteumGetAddress":                        56,
+	"MessageType_PracteumAddress":                           57,
+	"MessageType_PracteumSignTx":                            58,
+	"MessageType_PracteumTxRequest":                         59,
+	"MessageType_PracteumTxAck":                             60,
+	"MessageType_PracteumSignMessage":                       64,
+	"MessageType_PracteumVerifyMessage":                     65,
+	"MessageType_PracteumMessageSignature":                  66,
 	"MessageType_NEMGetAddress":                             67,
 	"MessageType_NEMAddress":                                68,
 	"MessageType_NEMSignTx":                                 69,

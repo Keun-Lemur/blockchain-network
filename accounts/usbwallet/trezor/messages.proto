@@ -107,17 +107,17 @@ enum MessageType {
     MessageType_DebugLinkMemoryWrite = 112 [(wire_debug_in) = true];
     MessageType_DebugLinkFlashErase = 113 [(wire_debug_in) = true];
 
-    // practeum
-    MessageType_practeumGetPublicKey = 450 [(wire_in) = true];
-    MessageType_practeumPublicKey = 451 [(wire_out) = true];
-    MessageType_practeumGetAddress = 56 [(wire_in) = true];
-    MessageType_practeumAddress = 57 [(wire_out) = true];
-    MessageType_practeumSignTx = 58 [(wire_in) = true];
-    MessageType_practeumTxRequest = 59 [(wire_out) = true];
-    MessageType_practeumTxAck = 60 [(wire_in) = true];
-    MessageType_practeumSignMessage = 64 [(wire_in) = true];
-    MessageType_practeumVerifyMessage = 65 [(wire_in) = true];
-    MessageType_practeumMessageSignature = 66 [(wire_out) = true];
+    // Practeum
+    MessageType_PracteumGetPublicKey = 450 [(wire_in) = true];
+    MessageType_PracteumPublicKey = 451 [(wire_out) = true];
+    MessageType_PracteumGetAddress = 56 [(wire_in) = true];
+    MessageType_PracteumAddress = 57 [(wire_out) = true];
+    MessageType_PracteumSignTx = 58 [(wire_in) = true];
+    MessageType_PracteumTxRequest = 59 [(wire_out) = true];
+    MessageType_PracteumTxAck = 60 [(wire_in) = true];
+    MessageType_PracteumSignMessage = 64 [(wire_in) = true];
+    MessageType_PracteumVerifyMessage = 65 [(wire_in) = true];
+    MessageType_PracteumMessageSignature = 66 [(wire_out) = true];
 
     // NEM
     MessageType_NEMGetAddress = 67 [(wire_in) = true];

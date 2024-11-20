@@ -7,7 +7,7 @@ package hw.trezor.messages.practeum;
 
 // Sugar for easier handling in Java
 option java_package = "com.satoshilabs.trezor.lib.protobuf";
-option java_outer_classname = "TrezorMessagepracteum";
+option java_outer_classname = "TrezorMessagePracteum";
 
 import "messages-common.proto";
 
@@ -15,10 +15,10 @@ import "messages-common.proto";
 /**
  * Request: Ask device for public key corresponding to address_n path
  * @start
- * @next practeumPublicKey
+ * @next PracteumPublicKey
  * @next Failure
  */
-message practeumGetPublicKey {
+message PracteumGetPublicKey {
     repeated uint32 address_n = 1;                                      // BIP-32 path to derive the key from master node
     optional bool show_display = 2;                                     // optionally show on display before sending the result
 }
@@ -27,7 +27,7 @@ message practeumGetPublicKey {
  * Response: Contains public key derived from device private seed
  * @end
  */
-message practeumPublicKey {
+message PracteumPublicKey {
     optional hw.trezor.messages.common.HDNodeType node = 1;        // BIP32 public node
     optional string xpub = 2;        // serialized form of public node
 }
@@ -35,19 +35,19 @@ message practeumPublicKey {
 /**
  * Request: Ask device for practeum address corresponding to address_n path
  * @start
- * @next practeumAddress
+ * @next PracteumAddress
  * @next Failure
  */
-message practeumGetAddress {
+message PracteumGetAddress {
     repeated uint32 address_n = 1;  // BIP-32 path to derive the key from master node
     optional bool show_display = 2; // optionally show on display before sending the result
 }
 
 /**
- * Response: Contains an practeum address derived from device private seed
+ * Response: Contains an Practeum address derived from device private seed
  * @end
  */
-message practeumAddress {
+message PracteumAddress {
     optional bytes  addressBin = 1;    // practeum address as 20 bytes (legacy firmwares)
     optional string addressHex = 2;    // practeum address as hex string (newer firmwares)
 }
@@ -57,10 +57,10 @@ message practeumAddress {
  * All fields are optional from the protocol's point of view. Each field defaults to value `0` if missing.
  * Note: the first at most 1024 bytes of data MUST be transmitted as part of this message.
  * @start
- * @next practeumTxRequest
+ * @next PracteumTxRequest
  * @next Failure
  */
-message practeumSignTx {
+message PracteumSignTx {
     repeated uint32 address_n = 1;          // BIP-32 path to derive the key from master node
     optional bytes nonce = 2;               // <=256 bit unsigned big endian
     optional bytes gas_price = 3;           // <=256 bit unsigned big endian (in wei)
@@ -79,9 +79,9 @@ message practeumSignTx {
  * If data_length is set, device awaits that many more bytes of payload.
  * Otherwise, the signature_* fields contain the computed transaction signature. All three fields will be present.
  * @end
- * @next practeumTxAck
+ * @next PracteumTxAck
  */
-message practeumTxRequest {
+message PracteumTxRequest {
     optional uint32 data_length = 1;    // Number of bytes being requested (<= 1024)
     optional uint32 signature_v = 2;    // Computed signature (recovery parameter, limited to 27 or 28)
     optional bytes signature_r = 3;     // Computed signature R component (256 bit)
@@ -90,19 +90,19 @@ message practeumTxRequest {
 
 /**
  * Request: Transaction payload data.
- * @next practeumTxRequest
+ * @next PracteumTxRequest
  */
-message practeumTxAck {
+message PracteumTxAck {
     optional bytes data_chunk = 1;  // Bytes from transaction payload (<= 1024 bytes)
 }
 
 /**
  * Request: Ask device to sign message
  * @start
- * @next practeumMessageSignature
+ * @next PracteumMessageSignature
  * @next Failure
  */
-message practeumSignMessage {
+message PracteumSignMessage {
     repeated uint32 address_n = 1;  // BIP-32 path to derive the key from master node
     optional bytes message = 2;     // message to be signed
 }
@@ -111,7 +111,7 @@ message practeumSignMessage {
  * Response: Signed message
  * @end
  */
-message practeumMessageSignature {
+message PracteumMessageSignature {
     optional bytes addressBin = 1;     // address used to sign the message (20 bytes, legacy firmware)
     optional bytes signature = 2;      // signature of the message
     optional string addressHex = 3;    // address used to sign the message (hex string, newer firmware)
@@ -123,7 +123,7 @@ message practeumMessageSignature {
  * @next Success
  * @next Failure
  */
-message practeumVerifyMessage {
+message PracteumVerifyMessage {
     optional bytes addressBin = 1;  // address to verify (20 bytes, legacy firmware)
     optional bytes signature = 2;   // signature to verify
     optional bytes message = 3;     // message to verify

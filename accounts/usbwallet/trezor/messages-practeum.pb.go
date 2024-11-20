@@ -641,16 +641,16 @@ func (m *PracteumVerifyMessage) GetAddressHex() string {
 }
 
 func init() {
-	proto.RegisterType((*PracteumGetPublicKey)(nil), "hw.trezor.messages.practeum.practeumGetPublicKey")
-	proto.RegisterType((*PracteumPublicKey)(nil), "hw.trezor.messages.practeum.practeumPublicKey")
-	proto.RegisterType((*PracteumGetAddress)(nil), "hw.trezor.messages.practeum.practeumGetAddress")
-	proto.RegisterType((*PracteumAddress)(nil), "hw.trezor.messages.practeum.practeumAddress")
-	proto.RegisterType((*PracteumSignTx)(nil), "hw.trezor.messages.practeum.practeumSignTx")
-	proto.RegisterType((*PracteumTxRequest)(nil), "hw.trezor.messages.practeum.practeumTxRequest")
-	proto.RegisterType((*PracteumTxAck)(nil), "hw.trezor.messages.practeum.practeumTxAck")
-	proto.RegisterType((*PracteumSignMessage)(nil), "hw.trezor.messages.practeum.practeumSignMessage")
-	proto.RegisterType((*PracteumMessageSignature)(nil), "hw.trezor.messages.practeum.practeumMessageSignature")
-	proto.RegisterType((*PracteumVerifyMessage)(nil), "hw.trezor.messages.practeum.practeumVerifyMessage")
+	proto.RegisterType((*PracteumGetPublicKey)(nil), "hw.trezor.messages.practeum.EthereumGetPublicKey")
+	proto.RegisterType((*PracteumPublicKey)(nil), "hw.trezor.messages.practeum.EthereumPublicKey")
+	proto.RegisterType((*PracteumGetAddress)(nil), "hw.trezor.messages.practeum.EthereumGetAddress")
+	proto.RegisterType((*PracteumAddress)(nil), "hw.trezor.messages.practeum.EthereumAddress")
+	proto.RegisterType((*PracteumSignTx)(nil), "hw.trezor.messages.practeum.EthereumSignTx")
+	proto.RegisterType((*PracteumTxRequest)(nil), "hw.trezor.messages.practeum.EthereumTxRequest")
+	proto.RegisterType((*PracteumTxAck)(nil), "hw.trezor.messages.practeum.EthereumTxAck")
+	proto.RegisterType((*PracteumSignMessage)(nil), "hw.trezor.messages.practeum.EthereumSignMessage")
+	proto.RegisterType((*PracteumMessageSignature)(nil), "hw.trezor.messages.practeum.EthereumMessageSignature")
+	proto.RegisterType((*PracteumVerifyMessage)(nil), "hw.trezor.messages.practeum.EthereumVerifyMessage")
 }
 
 func init() { proto.RegisterFile("messages-practeum.proto", fileDescriptor_cb33f46ba915f15c) }
