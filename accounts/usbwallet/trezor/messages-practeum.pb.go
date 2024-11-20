@@ -648,7 +648,7 @@ func init() {
 	proto.RegisterType((*PracteumSignTx)(nil), "hw.trezor.messages.ethereum.EthereumSignTx")
 	proto.RegisterType((*PracteumTxRequest)(nil), "hw.trezor.messages.ethereum.EthereumTxRequest")
 	proto.RegisterType((*PracteumTxAck)(nil), "hw.trezor.messages.ethereum.EthereumTxAck")
-	proto.RegisterType((*PracteumSignMessage)(nil), "hw.trezor.messages.praethereumcteum.EthereumSignMessage")
+	proto.RegisterType((*PracteumSignMessage)(nil), "hw.trezor.messages.ethereum.EthereumSignMessage")
 	proto.RegisterType((*PracteumMessageSignature)(nil), "hw.trezor.messages.ethereum.EthereumMessageSignature")
 	proto.RegisterType((*PracteumVerifyMessage)(nil), "hw.trezor.messages.ethereum.EthereumVerifyMessage")
 }
