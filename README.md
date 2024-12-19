@@ -1,57 +1,53 @@
-Go Practicum - Understanding How Geth Works on the Network
-Project Overview
-This repository was created to understand how the Go Ethereum (geth) client operates within a blockchain network.
-A blockchain client plays a crucial role in synchronizing block data, propagating transactions, and managing P2P network communications.
-The goals of this project are as follows:
+# Geth Practicum - Understanding How Geth Works on the Network
 
-Learn how the network works:
-Analyze how the Geth client transmits and receives data in the network and interacts with other nodes.
-Code analysis and hands-on practice:
-Explore the core components of the Geth codebase and test network-related functionalities.
-Deepen understanding of blockchain clients:
-Gain deeper insights into the architecture and operational principles of blockchain clients.
-Tools and Key Learning Points
-Programming Language: Go
-Focus: P2P network module in Geth
-Cloud Platform: Google Cloud Platform (GCP)
-Key Learning Points:
-Peer-to-Peer network protocol
-Block data synchronization process
-Transaction propagation mechanism
-Node deployment and operation in a cloud environment
-Progress
-1. Multi-node Network Setup Using GCP
-Environment Setup:
+---
 
-Deployed 3 Compute Engine instances on GCP to create a testing environment.
-Each server was configured with Ubuntu 22.04 and had the Geth client installed.
-Setup:
+## Overview
 
-Node A: Acts as the bootstrap node, generating the Genesis block and initializing the network.
-Node B, C: Connect to the bootstrap node as peers and perform synchronization and transaction tests.
-Network Configuration:
+This repository was created to better understand how blockchain client networks, like Geth (Go Ethereum), operate. The project focuses on exploring the mechanisms behind peer-to-peer networking, block synchronization, and consensus processes in a decentralized network.
 
-Configured GCP firewall rules to allow TCP ports 30303 (node discovery) and 8545 (RPC).
-Used enode addresses to establish connections between nodes.
-2. Geth Client Analysis and Testing
-Key Experiments:
+---
 
-Tested block data synchronization between nodes.
-Measured transaction propagation speed and success rate.
-Observed peer connection and retention in the P2P network.
-Results:
+## Implementation Details
 
-Verified stable operation and block data synchronization among nodes in the GCP environment.
-Observed that transaction propagation time varies based on node distance and network speed.
-3. Key Learning Outcomes
-Understanding the P2P Network:
+### Multi-Server Deployment on GCP
+To simulate a realistic blockchain network environment, three servers were deployed on **Google Cloud Platform (GCP)**. Each server was configured to run a Geth node, and the following steps were taken:
 
-How nodes discover and connect to peers.
-How data is transmitted via the RLPx protocol.
-Operating in a Cloud Environment:
+1. **Server Setup**: 
+   - Provisioned three virtual machines on GCP.
+   - Installed and configured Geth on each server.
 
-Confirmed the ease of deploying and scaling blockchain networks using GCP.
-Gained insights into how cloud firewall and network settings impact blockchain client operations.
+2. **Network Configuration**:
+   - Established peer-to-peer connections between the nodes.
+   - Set up a private blockchain network for testing and analysis.
+
+3. **Testing**:
+   - Simulated block propagation and transaction validation across the network.
+   - Monitored network behavior, including block synchronization and consensus mechanisms.
+
+---
+
+## Key Goals
+
+- To gain hands-on experience with setting up and managing a blockchain network.
+- To analyze the interaction between nodes in a decentralized system.
+- To document findings and provide insights into the operational aspects of Geth.
+
+---
+
+## Future Plans
+
+- Expand the network to include additional nodes.
+- Explore advanced features like custom genesis blocks and smart contract deployment.
+- Test different consensus algorithms and measure their performance.
+
+---
+
+## Conclusion
+
+This project provided a foundational understanding of how Geth operates within a network. By deploying nodes on GCP and experimenting with configurations, valuable insights were gained into the intricacies of blockchain client networks.
+
+---
 
 ---
 
