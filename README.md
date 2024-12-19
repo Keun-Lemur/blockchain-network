@@ -1,4 +1,5 @@
 # Geth Practicum - Understanding How Geth Works on the Network
+** This repository is only used for learning blockchain ecology. Keep in mind!
 
 ---
 
@@ -52,7 +53,7 @@ This project provided a foundational understanding of how Geth operates within a
 
 ---
 
-Official Golang implementation of the practeum protocol.
+# Official Golang implementation of the practeum protocol.
 
 [![API Reference](
 https://camo.githubusercontent.com/915b7be44ada53c290eb157634330494ebe3e30a/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f6c616e672f6764646f3f7374617475732e737667
