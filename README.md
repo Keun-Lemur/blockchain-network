@@ -37,9 +37,10 @@ To simulate a realistic blockchain network environment, three servers were deplo
 
 ## Future Plans
 
+- Compare geth to reth (GETH VS. RETH). 
 - Expand the network to include additional nodes.
 - Explore advanced features like custom genesis blocks and smart contract deployment.
-- Test different consensus algorithms and measure their performance.
+- Test different consensus algorithms and measure their performance (I hope...I don't know how to find good metors to do this..)
 
 ---
 
